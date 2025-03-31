@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MR GRILLED | Restaurante de Alta Cocina</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* RESET Y ESTILOS BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', serif;
+        }
+
+        :root {
+            --gold: #ffffff;
+            --gold-light: #e9d088;
+            --black: #0a0a0a;
+            --white: #f9f9f9;
+            --wine: #722f37;
+            --emerald: #046307;
+            --transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        p, a, button, li {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        /* HEADER INTELIGENTE */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            backdrop-filter: blur(10px);
+            background-color: rgba(10, 10, 10, 0.85);
+            padding: 1rem 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            transition: var(--transition);
+        }
+
+        header.scrolled .logo img {
+            height: 45px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            background-color: var(--gold);
+            left: 0;
+            bottom: -5px;
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        /* BOTONES SENSIBLES AL MOVIMIENTO */
+        .btn {
+            background: none;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 0.8rem 2rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 1;
+            outline: none;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--gold);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn:hover {
+            color: var(--black);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* SECCIÓN HERO */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .hero-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            padding: 2rem;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .typewriter {
+            font-size: 1.2rem;
+            color: var(--gold);
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid var(--gold);
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--gold); }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://github.com/tiktox/newvix/blob/main/Sitio%20Web%20Link%20en%20Bio%20Tecnolog%C3%ADa%20y%20Gaming%20Sencillo%20Azul%20Oscuro-modified.png?raw=true" alt="MR GRILLED">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Inicio</a></li>
+                    <li><a href="#about">Nosotros</a></li>
+                    <li><a href="#menu">Menú</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#reservations">Reservas</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-video-container">
+            <video class="hero-video" autoplay muted loop>
+                <source src=" http://newvix-production.up.railway.app/uploads/1743451427329.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">MR GRILLED</h1>
+            <p class="typewriter">Donde el arte y la gastronomía se fusionan</p>
+            <button class="btn">Reservar Ahora</button>
+        </div>
+    </section>
+    <style>
+        /* SECCIÓN SOBRE NOSOTROS */
+        .about-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+    
+            .about-text h2 {
+                font-size: 3rem;
+                color: var(--gold);
+                margin-bottom: 1.5rem;
+            }
+    
+            .about-video {
+                width: 100%;
+                height: 400px;
+                border: 0.0.5px solid var(--gold);
+                overflow: hidden;
+            }
+            
+            .about-video video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+    </style>
+        <!-- SOBRE NOSOTROS -->
+        <section class="about" id="about">
+            <div class="container about-content">
+                <div class="about-text">
+                    <h2>Nuestra Esencia</h2>
+                    <p>En MR GRILLED, cada plato es una obra maestra, creada con pasión y precisión por nuestros chefs galardonados. Cada plato es una obra maestra, elaborado con pasión y precisión por nuestros chefs galardonados. Utilizamos ingredientes frescos y técnicas innovadoras para ofrecerte sabores irresistibles en cada bocado. Ven y descubre el arte de la parrilla como nunca antes.</p>
+                </div>
+                <div class="about-video">
+                    <video autoplay loop muted playsinline>
+                        <source src="http://newvix-production.up.railway.app/uploads/1743446977289.mp4">
+                        Tu navegador no soporta el elemento de video.
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>MR GRILLED | Menú Interactivo Mejorado</title>
+            <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+            <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                    font-family: 'Playfair Display', serif;
+                }
+        
+                :root {
+                    --gold: #ffffff;
+                    --gold-light: #faf9f8;
+                    --black: #1a1a1a;
+                    --white: #f9f9f9;
+                    --gray: #8c8c8c;
+                    --transition: all 0.4s ease;
+                }
+        
+                body {
+                    background-color: var(--black);
+                    color: var(--white);
+                    line-height: 1.6;
+                    overflow-x: hidden;
+                }
+        
+                .container {
+                    max-width: 1500px;
+                    margin: 0 auto;
+                    padding: 0 1.5rem;
+                }
+        
+                /* Header */
+                .menu-header {
+                    padding: 4rem 0 2rem;
+                    text-align: center;
+                    background: linear-gradient(to bottom, rgba(26, 26, 26, 0.9), var(--black));
+                }
+        
+                .menu-header h1 {
+                    font-size: 3.5rem;
+                    color: var(--gold);
+                    margin-bottom: 1rem;
+                }
+        
+                /* Search Bar */
+                .search-bar {
+                    max-width: 700px;
+                    margin: 2rem auto;
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                }
+        
+                .search-bar input {
+                    width: 100%;
+                    padding: 1rem 1rem 1rem 3rem;
+                    border: 2px solid var(--gold);
+                    background: rgba(255, 255, 255, 0.05);
+                    color: var(--white);
+                    border-radius: 25px;
+                    font-size: 1rem;
+                    transition: var(--transition);
+                }
+        
+                .search-bar input:focus {
+                    outline: none;
+                    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+                    background: rgba(255, 255, 255, 0.1);
+                }
+        
+                .search-bar i {
+                    position: absolute;
+                    left: 1rem;
+                    color: var(--gold);
+                    font-size: 1.2rem;
+                }
+        
+                /* Filters */
+                .menu-filters {
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    gap: 1rem;
+                    margin: 2rem 0;
+                    padding: 0 1rem;
+                }
+        
+                .filter-btn {
+                    padding: 0.7rem 1.5rem;
+                    border: 2px solid var(--gold);
+                    background: transparent;
+                    color: var(--white);
+                    border-radius: 25px;
+                    cursor: pointer;
+                    transition: var(--transition);
+                }
+        
+                .filter-btn:hover, .filter-btn.active {
+                    background: var(--gold);
+                    color: var(--black);
+                }
+        
+                /* Menu Sections */
+                .menu-section {
+                    padding: 3rem 0;
+                    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+                }
+        
+                .menu-section h2 {
+                    color: var(--gold);
+                    font-size: 2.5rem;
+                    margin-bottom: 2rem;
+                    text-align: center;
+                    position: relative;
+                }
+        
+                .menu-section h2::after {
+                    content: '';
+                    width: 50px;
+                    height: 2px;
+                    background: var(--gold);
+                    position: absolute;
+                    bottom: -0.5rem;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+        
+                .menu-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                    gap: 2rem;
+                    padding: 0 1rem;
+                }
+        
+                .menu-item {
+                    background: rgba(255, 255, 255, 0.03);
+                    border-radius: 15px;
+                    overflow: hidden;
+                    transition: var(--transition);
+                    cursor: pointer;
+                }
+        
+                .menu-item:hover {
+                    transform: translateY(-10px);
+                    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+                }
+        
+                .menu-item img {
+                    width: 100%;
+                    height: 200px;
+                    object-fit: cover;
+                    transition: var(--transition);
+                }
+        
+                .menu-item:hover img {
+                    transform: scale(1.05);
+                }
+        
+                .menu-item-content {
+                    padding: 1.5rem;
+                }
+        
+                .menu-item-content h3 {
+                    color: var(--white);
+                    font-size: 1.4rem;
+                    margin-bottom: 0.5rem;
+                }
+        
+                .menu-item-content p {
+                    color: var(--gray);
+                    font-size: 0.95rem;
+                    margin-bottom: 1rem;
+                }
+        
+                .menu-item-price {
+                    color: var(--gold);
+                    font-weight: 600;
+                    font-size: 1.2rem;
+                }
+        
+                /* Modal */
+                .modal {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.95);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 1000;
+                    opacity: 0;
+                    pointer-events: none;
+                    transition: var(--transition);
+                }
+        
+                .modal.active {
+                    opacity: 1;
+                    pointer-events: all;
+                }
+        
+                .modal-content {
+                    background: var(--black);
+                    border-radius: 20px;
+                    width: 90%;
+                    max-width: 900px;
+                    max-height: 90vh;
+                    overflow-y: auto;
+                    padding: 2rem;
+                    position: relative;
+                    transform: scale(0.9);
+                    transition: var(--transition);
+                }
+        
+                .modal.active .modal-content {
+                    transform: scale(1);
+                }
+        
+                .modal-img {
+                    width: 100%;
+                    height: 350px;
+                    object-fit: cover;
+                    border-radius: 15px;
+                    margin-bottom: 2rem;
+                }
+        
+                .modal-title {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 1.5rem;
+                }
+        
+                .modal-title h3 {
+                    font-size: 2rem;
+                    color: var(--white);
+                }
+        
+                .modal-price {
+                    font-size: 1.8rem;
+                    color: var(--gold);
+                }
+        
+                .modal-description {
+                    color: var(--gray);
+                    margin-bottom: 2rem;
+                    font-size: 1.1rem;
+                }
+        
+                .modal-details {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                    gap: 1.5rem;
+                    margin-bottom: 2rem;
+                }
+        
+                .detail-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                }
+        
+                .detail-item i {
+                    color: var(--gold);
+                    font-size: 1.5rem;
+                }
+        
+                .close-modal {
+                    position: absolute;
+                    top: 1rem;
+                    right: 1rem;
+                    background: var(--gold);
+                    color: var(--black);
+                    border: none;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    transition: var(--transition);
+                }
+        
+                .close-modal:hover {
+                    background: var(--gold-light);
+                }
+        
+                /* Responsive Design */
+                @media (max-width: 768px) {
+                    .menu-header h1 {
+                        font-size: 2.5rem;
+                    }
+        
+                    .menu-grid {
+                        grid-template-columns: 1fr;
+                    }
+        
+                    .modal-img {
+                        height: 250px;
+                    }
+        
+                    .modal-title {
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 0.5rem;
+                    }
+                }
+        
+                @media (max-width: 480px) {
+                    .menu-item img {
+                        height: 150px;
+                    }
+        
+                    .modal-content {
+                        padding: 1rem;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <section class="menu-header">
+                <div class="container">
+                    <h1>MR GRILLED - Menú Exquisito</h1>
+                </div>
+            </section>
+        
+            <div class="container">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Busca tu plato favorito...">
+                </div>
+        
+                <div class="menu-filters">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="entradas">Entradas</button>
+                    <button class="filter-btn" data-filter="principales">Principales</button>
+                    <button class="filter-btn" data-filter="carnes">Carnes</button>
+                    <button class="filter-btn" data-filter="postres">Postres</button>
+                </div>
+        
+                <!-- Entradas -->
+                <div class="menu-section" data-category="entradas">
+                    <h2>Entradas</h2>
+                    <div class="menu-grid">
+                        <div class="menu-item" data-tags="vegetariano,gourmet">
+                            <img src="https://i.pinimg.com/736x/fe/79/a1/fe79a1547b458732863e7bb8c747dc54.jpg" alt="Nachos BBQ">
+                            <div class="menu-item-content">
+                                <h3>Carpaccio de Res Angus</h3>
+                                <p>Láminas finas de res, aliñadas con aceite de trufa, parmesano y rúcula fresca.</p>
+                                <span class="menu-item-price">$12</span>
+                            </div>
+                        </div>
+                        <div class="menu-item" data-tags="caliente,popular">
+                            <img src="https://i.pinimg.com/736x/34/82/13/348213c1ef318dd05b611bc1591f1c41.jpg" alt="Dip de Espinaca">
+                            <div class="menu-item-content">
+                                <h3>Ceviche de Camarón y Mango</h3>
+                                <p>Marinado en limón, con cebolla morada, cilantro y un toque dulce de mango.</p>
+                                <span class="menu-item-price">$10</span>
+                            </div>
+                        </div>
+                        <div class="menu-item" data-tags="crudo,signature">
+                            <img src="https://i.pinimg.com/736x/b7/95/f8/b795f8b0d70f12633eca5089e77d62fb.jpg" alt="Chicken Egg Rolls">
+                            <div class="menu-item-content">
+                                <h3>Tartar de Atún con Aguacate</h3>
+                                <p>Atún fresco en cubos, aliñado con salsa de soya y cítricos, servido sobre cremoso de aguacate.</p>
+                                <span class="menu-item-price">$14</span>
+                            </div>
+                        </div>
+                        <div class="menu-item" data-tags="frio,light">
+                            <img src="https://i.pinimg.com/736x/2b/3e/f3/2b3ef394603d8b034c579f328523bd1a.jpg" alt="Ensalada Caprese">
+                            <div class="menu-item-content">
+                                <h3>Provoleta a la Parrilla</h3>
+                                <p>Queso provolone derretido con chimichurri casero y pan rústico tostado.</p>
+                                <span class="menu-item-price">$11</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Platos Principales -->
+                <div class="menu-section" data-category="principales">
+                    <h2>Platos Principales</h2>
+                    <div class="menu-grid">
+                        <div class="menu-item" data-tags="pescado,saludable">
+                            <img src="https://i.pinimg.com/736x/13/06/98/130698588657da7006c95cbb5e17d242.jpg" alt="Lubina al Horno">
+                            <div class="menu-item-content">
+                                <h3>Tomahawk a la Parrilla</h3>
+                                <p>Jugoso corte premium con mantequilla de ajo y romero.
+                                </p>
+                                <span class="menu-item-price">$45</span>
+                            </div>
+                        </div>
+                        <div class="menu-item" data-tags="signature,mariscos">
+                            <img src="https://i.pinimg.com/736x/7b/90/ea/7b90ea1d12b617899f9175197ab8088c.jpg" alt="Risotto de Langosta">
+                            <div class="menu-item-content">
+                                <h3>Salmón en Costra de Hierbas</h3>
+                                <p>Acompañado de puré de papa trufado y espárragos.</p>
+                                <span class="menu-item-price">$65</span>
+                            </div>
+                        </div>
+                        <div class="menu-item" data-tags="vegetariano,pasta">
+                            <img src="https://i.pinimg.com/736x/1c/4e/70/1c4e70f203bc1b7179a48d6cac370ba4.jpg" alt="Ravioli de Trufa">
+                            <div class="menu-item-content">
+                                <h3>Ribeye Dry Aged</h3>
+                                <p>Cocinado a la perfección con chimichurri casero y papas rústicas.</p>
+                                <span class="menu-item-price">$42</span>
+                            </div>
+                        </div>
+                        <div class="menu-item" data-tags="carne,grill">
+                            <img src="https://i.pinimg.com/736x/a4/01/85/a40185b2a7b83a1c04ce9d00539e34e3.jpg" alt="Costillas BBQ">
+                            <div class="menu-item-content">
+                                <h3>Pollo a la Brasa Estilo MR GRILLED</h3>
+                                <p>Marinado 24 horas con especias y servido con ensalada fresca.
+
+                                 </p>
+                                <span class="menu-item-price">$38</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Carnes Premium -->
+                <div class="menu-section" data-category="carnes">
+                    <h2>Carnes Premium</h2>
+                    <div class="menu-grid">
+                        <div class="menu-item" data-tags="wagyu,premium">
+                            <img src="https://i.pinimg.com/736x/52/2a/14/522a14e3a0cf1333d1a6b0e4960267de.jpg" alt="Filete de Wagyu">
+                            <div class="menu-item-content">
+                                <h3>Wagyu A5 Japonés</h3>
+                                <p>Corte de la más alta calidad, servido con escamas de sal de mar.</p>
+                                <span class="menu-item-price">$85</span>
+                            </div>
+                        </div>
+                        <div class="menu-item" data-tags="cordero,gourmet">
+                            <img src="https://i.pinimg.com/736x/49/49/cd/4949cd9c018fdb26c0dc832bf1f924d8.jpg" alt="Rack de Cordero">
+                            <div class="menu-item-content">
+                                <h3>Filete Miñón con Salsa de Trufas</h3>
+                                <p>Acompañado de puré de papas con parmesano.
+                                </p>
+                                <span class="menu-item-price">$58</span>
+                            </div>
+                        </div>
+                        <div class="menu-item" data-tags="cerdo,tradicional">
+                            <img src="https://i.pinimg.com/736x/bb/2c/fa/bb2cfa27dc53ca528262921f89aeaca7.jpg" alt="Cochinillo Confitado">
+                            <div class="menu-item-content">
+                                <h3>Costillas de Res Braseadas 48H</h3>
+                                <p>Con reducción de vino tinto y vegetales asados.
+                                </p>
+                                <span class="menu-item-price">$62</span>
+                            </div>
+                        </div>
+                        <div class="menu-item" data-tags="ternera,grill">
+                            <img src="https://i.pinimg.com/736x/5e/3f/82/5e3f82970ab03ef648f63050d23c7a34.jpg" alt="Chuleton Angus">
+                            <div class="menu-item-content">
+                                <h3>Picaña Angus Ahumada</h3>
+                                <p>Servida con salsa de mostaza antigua y papas al horno.
+                                </p>
+                                <span class="menu-item-price">$70</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Postres -->
+                <div class="menu-section" data-category="postres">
+                    <h2>Postres</h2>
+                    <div class="menu-grid">
+                        <div class="menu-item" data-tags="chocolate,caliente">
+                            <img src="https://i.pinimg.com/736x/10/a6/9b/10a69b84706e92c6e7443609a204000d.jpg" alt="Coulant de Chocolate">
+                            <div class="menu-item-content">
+                                <h3>Red Velvet Cheesecake</h3>
+                                <p>Deléitese con esta tarta de queso Red Velvet y Oreo, una deliciosa combinación de pastel de terciopelo rojo y tarta de queso Oreo cubierta con un ganache suave.</p>
+                                <span class="menu-item-price">$14</span>
+                            </div>
+                        </div>
+                        <div class="menu-item" data-tags="frutas,refrescante">
+                            <img src="https://i.pinimg.com/736x/24/c3/3b/24c33bc5d74cc0d7303f338c9d86ddea.jpg" alt="Tarta de Limón">
+                            <div class="menu-item-content">
+                                <h3>BEST RECIPE For Boston chocolate Cream</h3>
+                                <p>Una de mis mejores recetas: Tarta de queso con crema de chocolate Boston.</p>
+                                <span class="menu-item-price">$12</span>
+                            </div>
+                        </div>
+                        <div class="menu-item" data-tags="clasico,frances">
+                            <img src="https://i.pinimg.com/736x/c9/fd/8f/c9fd8f32e0e4a29f3e29f1e561c17b2d.jpg" alt="Crème Brûlée">
+                            <div class="menu-item-content">
+                                <h3>BEST RECIPE For Chocolate and Raspberry Mousse Cake</h3>
+                                <p>Pastel de mousse de chocolate y frambuesa con glaseado de chocolate espejo</p>
+                                <span class="menu-item-price">$13</span>
+                            </div>
+                        </div>
+                        <div class="menu-item" data-tags="dulce,signature">
+                            <img src="https://i.pinimg.com/736x/70/6a/30/706a3073d5aee051192a90a5d4ad7c0b.jpg" alt="Cheesecake">
+                            <div class="menu-item-content">
+                                <h3>Blueberry Cheesecake Flavor Oil - Unsweetened</h3>
+                                <p>Aceite con sabor a tarta de queso y arándanos
+                                </p>
+                                <span class="menu-item-price">$15</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Modal -->
+            <div class="modal" id="menuModal">
+                <div class="modal-content">
+                    <button class="close-modal"><i class="fas fa-times"></i></button>
+                    <img class="modal-img" id="modalImg" src="" alt="">
+                    <div class="modal-title">
+                        <h3 id="modalTitle"></h3>
+                        <span class="modal-price" id="modalPrice"></span>
+                    </div>
+                    <p class="modal-description" id="modalDesc"></p>
+                    <div class="modal-details">
+                        <div class="detail-item">
+                            <i class="fas fa-fire"></i>
+                            <span>Calorías: <span id="modalCalories"></span></span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Tiempo: <span id="modalTime"></span></span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-star"></i>
+                            <span>Valoración: <span id="modalRating"></span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <script>
+                const dishDetails = {
+                    "Nachos BBQ": { calories: "450 kcal", time: "15 min", rating: "4.6" },
+                    "Dip de Espinaca": { calories: "320 kcal", time: "10 min", rating: "4.8" },
+                    "Chicken Egg Rolls": { calories: "380 kcal", time: "20 min", rating: "4.7" },
+                    "Ensalada Caprese": { calories: "250 kcal", time: "10 min", rating: "4.5" },
+                    "Lubina al Horno": { calories: "450 kcal", time: "35 min", rating: "4.6" },
+                    "Risotto de Langosta": { calories: "620 kcal", time: "45 min", rating: "4.9" },
+                    "Ravioli de Trufa": { calories: "480 kcal", time: "30 min", rating: "4.7" },
+                    "Costillas BBQ": { calories: "780 kcal", time: "40 min", rating: "4.8" },
+                    "Filete de Wagyu": { calories: "720 kcal", time: "25 min", rating: "4.9" },
+                    "Rack de Cordero": { calories: "650 kcal", time: "40 min", rating: "4.8" },
+                    "Cochinillo Confitado": { calories: "780 kcal", time: "60 min", rating: "4.7" },
+                    "Chuletón Angus": { calories: "850 kcal", time: "30 min", rating: "4.9" },
+                    "Coulant de Chocolate": { calories: "420 kcal", time: "20 min", rating: "4.8" },
+                    "Tarta de Limón": { calories: "340 kcal", time: "25 min", rating: "4.6" },
+                    "Crème Brûlée": { calories: "380 kcal", time: "30 min", rating: "4.7" },
+                    "Cheesecake New York": { calories: "450 kcal", time: "25 min", rating: "4.8" }
+                };
+        
+                const searchInput = document.getElementById('searchInput');
+                const filterButtons = document.querySelectorAll('.filter-btn');
+                const menuItems = document.querySelectorAll('.menu-item');
+                const modal = document.getElementById('menuModal');
+                const closeModal = document.querySelector('.close-modal');
+        
+                // Filter and Search
+                function filterMenu(searchTerm, filter) {
+                    document.querySelectorAll('.menu-section').forEach(section => {
+                        const category = section.dataset.category;
+                        const items = section.querySelectorAll('.menu-item');
+                        let sectionVisible = false;
+        
+                        items.forEach(item => {
+                            const title = item.querySelector('h3').textContent.toLowerCase();
+                            const tags = item.dataset.tags.toLowerCase();
+                            const matchesSearch = title.includes(searchTerm) || tags.includes(searchTerm);
+                            const matchesFilter = filter === 'all' || filter === category;
+        
+                            if (matchesSearch && matchesFilter) {
+                                item.style.display = 'block';
+                                sectionVisible = true;
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        });
+        
+                        section.style.display = sectionVisible ? 'block' : 'none';
+                    });
+                }
+        
+                searchInput.addEventListener('input', () => {
+                    const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+                    filterMenu(searchInput.value.toLowerCase(), activeFilter);
+                });
+        
+                filterButtons.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        filterButtons.forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        filterMenu(searchInput.value.toLowerCase(), btn.dataset.filter);
+                    });
+                });
+        
+                // Modal Functionality
+                menuItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        const title = item.querySelector('h3').textContent;
+                        const details = dishDetails[title] || {};
+        
+                        document.getElementById('modalImg').src = item.querySelector('img').src;
+                        document.getElementById('modalTitle').textContent = title;
+                        document.getElementById('modalPrice').textContent = item.querySelector('.menu-item-price').textContent;
+                        document.getElementById('modalDesc').textContent = item.querySelector('p').textContent;
+                        document.getElementById('modalCalories').textContent = details.calories || 'N/A';
+                        document.getElementById('modalTime').textContent = details.time || 'N/A';
+                        document.getElementById('modalRating').textContent = details.rating || 'N/A';
+        
+                        modal.classList.add('active');
+                    });
+                });
+        
+                closeModal.addEventListener('click', () => modal.classList.remove('active'));
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) modal.classList.remove('active');
+                });
+            </script>
+        </body>
+        </html>
+
+
+
+
+    <script>
+        // HEADER SCROLL EFFECT
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // BOTÓN CON SONIDO
+        const buttons = document.querySelectorAll('.btn');
+        const audio = new Audio('https://www.soundjay.com/buttons/glass-clink-1.mp3');
+        buttons.forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                audio.currentTime = 0;
+                audio.play();
+            });
+        });
+
+        // ANIMACIÓN AL HACER SCROLL
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.classList.add('fade-up');
+            observer.observe(item);
+        });
+
+        // ESTILOS PARA ANIMACIÓN
+        const styleSheet = document.styleSheets[0];
+        styleSheet.insertRule(`
+            .fade-up {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: opacity 1s, transform 1s;
+            }
+        `, styleSheet.cssRules.length);
+        styleSheet.insertRule(`
+            .fade-up.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        `, styleSheet.cssRules.length);
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MR GRILLED | Menú Interactivo con Galería</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Previous styles from your menu remain here... */
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 4rem 0;
+            background: var(--black);
+        }
+
+        .gallery-section h2 {
+            color: var(--gold);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .gallery-section h2::after {
+            content: '';
+            width: 50px;
+            height: 2px;
+            background: var(--gold);
+            position: absolute;
+            bottom: -0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Upload Form */
+        .upload-form {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .upload-form input[type="file"] {
+            padding: 0.5rem;
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--gold);
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .upload-form button {
+            padding: 0.8rem 2rem;
+            background: var(--gold);
+            color: var(--black);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+        }
+
+        .upload-form button:hover {
+            background: var(--gold-light);
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            column-count: 4;
+            column-gap: 1.5rem;
+            padding: 0 1rem;
+        }
+
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            display: block;
+            border-radius: 15px;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+        }
+
+        .delete-btn {
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition);
+        }
+
+        .delete-btn:hover {
+            background: #ff6666;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .gallery-grid {
+                column-count: 3;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                column-count: 1;
+            }
+
+            .upload-form {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Previous menu content goes here... -->
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2>Galería de Nuestros Clientes</h2>
+
+            <!-- Upload Form -->
+            <form id="uploadForm" class="upload-form">
+                <input type="file" id="imageInput" accept="image/*" required>
+                <button type="submit">Subir Imagen</button>
+            </form>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Images will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Sample initial images (in a real app, these would come from the server)
+        const initialImages = [
+            {
+                id: '1',
+                url: 'https://scontent.fsti4-1.fna.fbcdn.net/v/t1.15752-9/486152055_454890774314000_4454427385294951973_n.jpg',
+            },
+            {
+                id: '2',
+                url: 'https://scontent.fsti4-1.fna.fbcdn.net/v/t1.15752-9/486593569_678657768434848_193857528482864176_n.jpg',
+            },
+            {
+                id: '3',
+                url: 'https://scontent.fsti4-1.fna.fbcdn.net/v/t1.15752-9/486694445_1205206774573297_865635216516213439_n.jpg',
+            },
+        ];
+
+        const galleryGrid = document.getElementById('galleryGrid');
+        const uploadForm = document.getElementById('uploadForm');
+        const imageInput = document.getElementById('imageInput');
+
+        // Function to render images in the gallery
+        function renderGallery(images) {
+            galleryGrid.innerHTML = '';
+            images.forEach(image => {
+                const galleryItem = document.createElement('div');
+                galleryItem.classList.add('gallery-item');
+                galleryItem.innerHTML = `
+                    <img src="${image.url}" alt="Customer Image">
+                    <div class="gallery-item-overlay">
+                        <button class="delete-btn" data-id="${image.id}">Eliminar</button>
+                    </div>
+                `;
+                galleryGrid.appendChild(galleryItem);
+            });
+
+            // Add event listeners to delete buttons
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const id = e.target.dataset.id;
+                    if (confirm('¿Estás seguro de que deseas eliminar esta imagen?')) {
+                        deleteImage(id);
+                    }
+                });
+            });
+        }
+
+        // Initial render of images
+        renderGallery(initialImages);
+
+        // Handle image upload
+        uploadForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const file = imageInput.files[0];
+            if (!file) return alert('Por favor, selecciona una imagen.');
+
+            const formData = new FormData();
+            formData.append('image', file);
+
+            try {
+                // Replace with your Railway server URL
+                const response = await fetch('https://newvix-production.up.railway.app/upload', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    // Add the new image to the gallery
+                    initialImages.push({ id: data.id, url: data.url });
+                    renderGallery(initialImages);
+                    uploadForm.reset();
+                    alert('Imagen subida con éxito.');
+                } else {
+                    alert('Error al subir la imagen: ' + data.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error al subir la imagen. Intenta de nuevo.');
+            }
+        });
+
+        // Handle image deletion
+        async function deleteImage(id) {
+            try {
+                // Replace with your Railway server URL
+                const response = await fetch(`https://newvix-production.up.railway.app/upload`, {
+                    method: 'DELETE',
+                });
+
+                if (response.ok) {
+                    // Remove the image from the gallery
+                    const index = initialImages.findIndex(img => img.id === id);
+                    if (index !== -1) {
+                        initialImages.splice(index, 1);
+                        renderGallery(initialImages);
+                        alert('Imagen eliminada con éxito.');
+                    }
+                } else {
+                    const data = await response.json();
+                    alert('Error al eliminar la imagen: ' + data.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error al eliminar la imagen. Intenta de nuevo.');
+            }
+        }
+    </script>
+</body>
+</html>

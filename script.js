@@ -226,48 +226,48 @@
             },
             {
                 id: '2',
-                url: 'https://res-console.cloudinary.com/dvj0oozud/media_explorer_thumbnails/32ee5dcf1a70570f957d06f8297cb8cf/detailed',
+                url: 'https://ik.imagekit.io/ajkl5a98u/c1fc661b84a854ef3e3eced8035d71e0.jpg?updatedAt=1747087383162',
             },
             {
                 id: '3',
-                url: 'https://res-console.cloudinary.com/dvj0oozud/media_explorer_thumbnails/cabfc1baad3e84ab495dff87966d349e/detailed',
+                url: 'https://ik.imagekit.io/ajkl5a98u/2eefc20ea967eb58909a1864beebed27.jpg?updatedAt=1747087383266',
             },
             {
                 id: '4',
-                url: 'https://res-console.cloudinary.com/dvj0oozud/media_explorer_thumbnails/af46f892baa57292b9a774d9ef4b7092/detailed',
+                url: 'https://ik.imagekit.io/ajkl5a98u/6f52da0117af4a69f7197c6427ab17e7.jpg?updatedAt=1747087383190',
             },
             {
                 id: '5',
-                url: 'https://res-console.cloudinary.com/dvj0oozud/media_explorer_thumbnails/42536e265eaef8983a3646d3d8b49fe1/detailed',
+                url: 'https://ik.imagekit.io/ajkl5a98u/6410280ea008a6ca9e706e15cd288860.jpg?updatedAt=1747087382863',
             },
             {
                 id: '6',
-                url: 'https://res-console.cloudinary.com/dvj0oozud/media_explorer_thumbnails/352de1f5db87e242766d68951ee778ec/detailed',
+                url: 'https://ik.imagekit.io/ajkl5a98u/6410280ea008a6ca9e706e15cd288860.jpg?updatedAt=1747087382863',
             },
             {
                 id: '7',
-                url: 'https://res-console.cloudinary.com/dvj0oozud/media_explorer_thumbnails/fe668bdb52e31ee5da9d1761f73f10e0/detailed',
+                url: 'https://ik.imagekit.io/ajkl5a98u/6fdc92d95192550e86d0498689a40f88.jpg?updatedAt=1747087382723',
             },
             {
                 id: '8',
-                url: 'https://res-console.cloudinary.com/dvj0oozud/media_explorer_thumbnails/896b0c026310362d9a26f997d0f01e6e/detailed',
+                url: 'https://ik.imagekit.io/ajkl5a98u/b38db2dcbd1876be51d7228c6450e03d.jpg?updatedAt=1747087382497',
             },
             // Imágenes adicionales para demostrar la funcionalidad "Mostrar más"
             {
                 id: '9',
-                url: 'https://res-console.cloudinary.com/dvj0oozud/media_explorer_thumbnails/70ea534821860c5738de38f1f252a1e4/detailed',
+                url: 'https://ik.imagekit.io/ajkl5a98u/81ba15f5f881516ac056762ca08b0055.jpg?updatedAt=1747087382505',
             },
             {
                 id: '10',
-                url: 'https://res-console.cloudinary.com/dvj0oozud/media_explorer_thumbnails/91bb863d236b0eadd87c59018bf048ae/detailed',
+                url: 'https://ik.imagekit.io/ajkl5a98u/27379a55392602bf30d8eaa559da26aa.jpg?updatedAt=1747087381784',
             },
             {
                 id: '11',
-                url: 'https://res-console.cloudinary.com/dvj0oozud/media_explorer_thumbnails/7031cde960de8ddfeda021590ff7c512/detailed',
+                url: 'https://ik.imagekit.io/ajkl5a98u/ba6e98179f267bbca2b0f8a189345c09.jpg?updatedAt=1747087380710',
             },
             {
                 id: '12',
-                url: 'https://res-console.cloudinary.com/dvj0oozud/media_explorer_thumbnails/7031cde960de8ddfeda021590ff7c512/detailed',
+                url: 'https://ik.imagekit.io/ajkl5a98u/1de7779ec8c4ddd3e06ee45a6af934dd.jpg?updatedAt=1747087380517',
             },
         ];
         const galleryGrid = document.getElementById('galleryGrid');

@@ -45,179 +45,189 @@
             position: relative;
         }
 
-        /* HEADER INTELIGENTE */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1.5rem 2rem;
-    z-index: 1000;
-    transition: var(--transition);
+/* Correcciones para MR GRILLED sitio web */
+
+/* Estilos globales */
+:root {
+  --primary-color: #e0a800;
+  --text-light: #ffffff;
+  --text-dark: #333333;
+  --overlay-dark: rgba(0, 0, 0, 0.5);
+  --font-main: 'Playfair Display', serif;
+  --font-secondary: 'Montserrat', sans-serif;
+  --transition: all 0.3s ease;
 }
 
-header.scrolled {
-    backdrop-filter: blur(10px);
-    background-color: rgba(10, 10, 10, 0.85);
-    padding: 1rem 2rem;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-secondary);
+  overflow-x: hidden;
+}
+
+/* Header y navegación */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  z-index: 1000;
+  transition: var(--transition);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1400px;
-    margin: 0 auto;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
 }
 
-.logo img {
-    height: 60px;
-    transition: var(--transition);
+.logo {
+  width: 80px;
+  height: 80px;
+  transition: var(--transition);
 }
 
-header.scrolled .logo img {
-    height: 45px;
+/* Hero section - Correcciones */
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
 }
 
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.8);
 }
 
-nav a {
-    color: var(--white);
-    text-decoration: none;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    position: relative;
-    transition: var(--transition);
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 90%;
+  max-width: 800px;
+  z-index: 10;
 }
 
-nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1px;
-    background-color: var(--gold);
-    left: 0;
-    bottom: -5px;
-    transition: var(--transition);
+/* Corrección para el título */
+.hero-title {
+  font-family: var(--font-main);
+  color: var(--text-light);
+  margin: 0 0 1rem;
+  font-size: 4rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px;
 }
 
-nav a:hover::after {
-    width: 100%;
+/* Corrección para el subtítulo */
+.hero-subtitle {
+  font-family: var(--font-secondary);
+  color: var(--text-light);
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
-nav a:hover {
-    color: var(--gold);
+/* Corrección para el botón */
+.btn-reserve {
+  display: inline-block;
+  background-color: transparent;
+  color: var(--text-light);
+  border: 2px solid var(--text-light);
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  transition: var(--transition);
+  text-decoration: none;
+  margin-top: 1rem;
 }
 
-/* Botón de menú móvil (oculto por defecto) */
-.mobile-menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    z-index: 1001;
+.btn-reserve:hover {
+  background-color: var(--text-light);
+  color: var(--text-dark);
 }
 
-.mobile-menu-btn span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: var(--white);
-    margin: 5px 0;
-    transition: var(--transition);
+/* Icono de calendario */
+.calendar-icon {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: var(--primary-color);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 100;
 }
 
-/* Media queries para diseño responsivo */
-@media screen and (max-width: 992px) {
-    header {
-        padding: 1rem 1.5rem;
-    }
-    
-    header.scrolled {
-        padding: 0.75rem 1.5rem;
-    }
-    
-    .logo img {
-        height: 50px;
-    }
-    
-    header.scrolled .logo img {
-        height: 40px;
-    }
-    
-    nav ul {
-        gap: 1.5rem;
-    }
+.calendar-icon:hover {
+  transform: scale(1.1);
 }
 
+.calendar-icon img {
+  width: 30px;
+  height: 30px;
+  filter: brightness(0) invert(1);
+}
+
+/* Media queries */
 @media screen and (max-width: 768px) {
-    .mobile-menu-btn {
-        display: block;
-    }
-    
-    nav {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        max-width: 300px;
-        height: 100vh;
-        background-color: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(10px);
-        padding: 5rem 2rem 2rem;
-        transition: right 0.3s ease;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
-    }
-    
-    nav.active {
-        right: 0;
-    }
-    
-    nav ul {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    
-    /* Animación para el botón de hamburguesa */
-    .mobile-menu-btn.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-    
-    .mobile-menu-btn.active span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .mobile-menu-btn.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -8px);
-    }
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .btn-reserve {
+    padding: 0.8rem 2rem;
+  }
+  
+  .logo {
+    width: 60px;
+    height: 60px;
+  }
 }
 
 @media screen and (max-width: 480px) {
-    header {
-        padding: 0.75rem 1rem;
-    }
-    
-    header.scrolled {
-        padding: 0.5rem 1rem;
-    }
-    
-    .logo img {
-        height: 40px;
-    }
-    
-    header.scrolled .logo img {
-        height: 35px;
-    }
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .calendar-icon {
+    width: 50px;
+    height: 50px;
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+  
+  .calendar-icon img {
+    width: 25px;
+    height: 25px;
+  }
 }
 
         /* BOTONES SENSIBLES AL MOVIMIENTO */

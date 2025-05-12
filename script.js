@@ -222,7 +222,7 @@
           const allImages = [
             {
                 id: '1',
-                url: 'https://res-console.cloudinary.com/dvj0oozud/media_explorer_thumbnails/7031cde960de8ddfeda021590ff7c512/detailed',
+                url: 'https://ik.imagekit.io/ajkl5a98u/e9638cd22de73d95ae6bb6ffabdfdb21.jpg?updatedAt=1747087383447',
             },
             {
                 id: '2',
